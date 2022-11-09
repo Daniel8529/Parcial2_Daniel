@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -46,6 +48,25 @@ android {
 }
 
 dependencies {
+    //navegacion
+    implementation "androidx.navigation:navigation-compose:2.5.0"
+
+    //viewmodel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0"
+
+    //room
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.moshi:moshi-kotlin:1.13.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation "androidx.compose.ui:ui:$compose_version"
