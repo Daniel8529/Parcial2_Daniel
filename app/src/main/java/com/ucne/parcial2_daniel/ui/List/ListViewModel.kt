@@ -26,13 +26,8 @@ class ListViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             _uiState.getAndUpdate {
-                try {
-                    it.copy(verbo =repository.geAllapi().sortedBy { it.Verbo } )
-                }
-                catch (ioe:IOException){
-                    it.copy(verbo = emptyList() )
-                }
 
+                    it.copy(verbo =repository.geAllapi().sortedBy { it.Verbo } )
             }
         }
     }
